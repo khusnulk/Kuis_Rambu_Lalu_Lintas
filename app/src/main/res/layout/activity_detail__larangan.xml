@@ -1,0 +1,64 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".Larangan.Detail_Larangan"
+    android:background="@drawable/w">
+
+
+    <ImageButton
+        android:layout_width="60dp"
+        android:layout_height="60dp"
+        android:id="@+id/btn_panah_kiri"
+        android:text="Rambu Petunjuk"
+        android:layout_marginStart="15dp"
+        android:layout_marginTop="15dp"
+        android:onClick="panah_kiri"
+        android:background="@drawable/panah_kecilkiri"/>
+
+    <LinearLayout
+        android:layout_width="500dp"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:background="@color/white"
+        android:paddingBottom="30dp"
+        android:layout_marginTop="90dp"
+        android:layout_marginLeft="10dp"
+        android:layout_marginRight="10dp">
+
+        <ImageView
+            android:id="@+id/detail_imglarangan"
+            android:layout_width="300dp"
+            android:layout_height="200dp"
+            tools:srcCompat="@tools:sample/avatars"
+            android:layout_marginLeft="100dp"
+            android:layout_marginTop="30dp"/>
+
+        <TextView
+            android:id="@+id/detail_judullarangan"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="20dp"
+            android:layout_marginBottom="10dp"
+            android:layout_marginLeft="8dp"
+            android:fontFamily="serif"
+            android:text="Judul"
+            android:textSize="20sp"
+            android:textStyle="bold"/>
+
+        <TextView
+            android:id="@+id/detail_deskripsilarangan"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="8dp"
+            android:layout_marginTop="20dp"
+            android:layout_marginBottom="10dp"
+            android:fontFamily="serif"
+            android:text="Deskripsi"
+            android:textSize="14sp" />
+
+    </LinearLayout>
+
+</RelativeLayout>

@@ -1,0 +1,60 @@
+<?xml version="1.0" encoding="utf-8"?>
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    package="com.praktek.kuis_rambu_lalu_lintas">
+
+    <application
+        android:allowBackup="true"
+        android:icon="@mipmap/ic_launcher"
+        android:label="Kuis Rambu Lalu Lintas"
+        android:roundIcon="@mipmap/ic_launcher_round"
+        android:supportsRtl="true"
+        android:theme="@style/Theme.Kuis_Rambu_Lalu_Lintas">
+        <activity android:name=".bermain.SkorTertinggi"></activity>
+        <activity android:name=".About_Activity" />
+        <activity android:name=".bermain.Score_Activity" />
+        <activity android:name=".bermain.Level1" />
+        <activity
+            android:name=".Taugaksih.Data_TauGakSih"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".Peringatan.Data_Peringatan"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".Larangan.Detail_Larangan"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".Peringatan.Detail_Peringatan"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".Perintah.Detail_Perintah"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".Petunjuk.Detail_Rambu_Petunjuk"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".Larangan.Data_Larangan"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".Perintah.Data_Perintah"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".Petunjuk.PetunjukData"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".bermain.Mulai_Bermain"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".Informasi_Activity"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".MainActivity"
+            android:screenOrientation="portrait">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
+    </application>
+
+</manifest>

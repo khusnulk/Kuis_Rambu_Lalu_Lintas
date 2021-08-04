@@ -1,0 +1,80 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".MainActivity"
+    android:background="@drawable/wanimasi">
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="150dp"
+        android:text="Mari Mengenal Rambu Lalu Lintas"
+        android:textColor="@color/red"
+        android:gravity="center"
+        android:textSize="20pt"
+        android:layout_marginTop="40dp"/>
+
+    <TextView
+        android:layout_width="250dp"
+        android:layout_height="wrap_content"
+        android:text="Mulai"
+        android:textSize="32sp"
+        android:id="@+id/btn_mulai"
+        android:layout_marginTop="250dp"
+        android:layout_marginLeft="115dp"
+        android:textAlignment="center"
+        android:background="@drawable/bg_textview"
+        android:textColor="@color/red"/>
+
+    <TextView
+        android:layout_width="250dp"
+        android:layout_height="wrap_content"
+        android:text="Informasi"
+        android:textSize="32sp"
+        android:id="@+id/btn_Informasi"
+        android:layout_marginTop="320dp"
+        android:layout_marginLeft="115dp"
+        android:textAlignment="center"
+        android:background="@drawable/bg_textview"
+        android:textColor="@color/red"/>
+
+    <TextView
+        android:layout_width="250dp"
+        android:layout_height="wrap_content"
+        android:text="Score"
+        android:textSize="32sp"
+        android:id="@+id/btn_Score"
+        android:textAlignment="center"
+        android:layout_marginLeft="115dp"
+        android:layout_marginTop="390dp"
+        android:background="@drawable/bg_textview"
+        android:textColor="@color/red"/>
+
+    <TextView
+        android:layout_width="250dp"
+        android:layout_height="wrap_content"
+        android:text="Tentang"
+        android:textSize="32sp"
+        android:id="@+id/btn_Tentang"
+        android:layout_marginTop="460dp"
+        android:layout_marginLeft="115dp"
+        android:textAlignment="center"
+        android:background="@drawable/bg_textview"
+        android:textColor="@color/red"/>
+
+    <TextView
+        android:layout_width="250dp"
+        android:layout_height="wrap_content"
+        android:text="Keluar"
+        android:textSize="32sp"
+        android:id="@+id/btn_Keluar"
+        android:textAlignment="center"
+        android:layout_marginLeft="115dp"
+        android:layout_marginTop="532dp"
+        android:background="@drawable/bg_textview"
+        android:textColor="@color/red"/>
+
+
+</RelativeLayout>

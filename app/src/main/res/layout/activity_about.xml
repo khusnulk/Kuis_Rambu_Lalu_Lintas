@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".About_Activity"
+    android:background="@drawable/wanimasi">
+
+    <ImageView
+        android:layout_width="430dp"
+        android:layout_height="430dp"
+        android:layout_marginTop="100dp"
+        android:layout_marginLeft="30dp"
+        android:id="@+id/img_about"
+        android:background="@drawable/tentang"/>
+
+    <TextView
+        android:layout_width="420dp"
+        android:layout_height="400dp"
+        android:layout_marginTop="115dp"
+        android:layout_marginLeft="40dp"
+        android:id="@+id/tv_tentang"
+        android:textSize="25sp"
+        android:text="Aplikasi ini dibuat untuk mengenalkan rambu-rambu lalu lintas dengan cara bermain sambil belajar dengan memainkan sebuah game kuis agar tidak merasa cepat bosan saat belajar."
+        android:padding="20dp"/>
+
+
+
+
+</RelativeLayout>

@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.cardview.widget.CardView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:orientation="horizontal"
+    android:layout_marginTop="20dp"
+    android:layout_marginLeft="20dp"
+    android:layout_marginRight="20dp"
+    app:cardCornerRadius="20dp"
+    app:cardBackgroundColor="@color/light_gray">
+
+           <ImageView
+               android:layout_width="120dp"
+               android:layout_height="100dp"
+               android:id="@+id/img_perintah"
+               android:layout_marginTop="30dp"
+               android:layout_marginLeft="5dp"
+               android:layout_marginBottom="10dp"/>
+
+           <TextView
+               android:layout_width="300dp"
+               android:layout_height="35dp"
+               android:id="@+id/judul_perintah"
+               android:textSize="20sp"
+               android:textStyle="bold"
+               android:layout_marginLeft="135dp"
+               android:layout_marginTop="15dp"/>
+
+           <TextView
+               android:layout_width="300dp"
+               android:layout_height="65dp"
+               android:id="@+id/ket_perintah"
+               android:layout_marginTop="55dp"
+               android:layout_marginBottom="3dp"
+               android:layout_marginLeft="135dp"
+               android:textSize="14sp"
+               android:maxLines="3"/>
+
+           <ImageButton
+               android:layout_width="300dp"
+               android:layout_height="50dp"
+               android:id="@+id/btn_perintah"
+               android:layout_marginTop="130dp"
+               android:layout_marginLeft="135dp"
+               android:layout_marginBottom="20dp"
+               android:background="@drawable/detailbutton2"/>
+
+
+</androidx.cardview.widget.CardView>
