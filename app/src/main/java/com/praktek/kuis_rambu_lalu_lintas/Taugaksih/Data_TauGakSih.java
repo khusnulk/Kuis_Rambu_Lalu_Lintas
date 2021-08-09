@@ -9,8 +9,10 @@ import android.media.MediaPlayer;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.ImageButton;
+import android.widget.ImageView;
 
 import com.praktek.kuis_rambu_lalu_lintas.Informasi_Activity;
+import com.praktek.kuis_rambu_lalu_lintas.Pengaturan_Activity;
 import com.praktek.kuis_rambu_lalu_lintas.R;
 
 public class Data_TauGakSih extends AppCompatActivity {
@@ -34,11 +36,15 @@ public class Data_TauGakSih extends AppCompatActivity {
     int[] gambar = {R.drawable.rambu_kuning,R.drawable.rambu_merah,R.drawable.rambu_biru
             ,R.drawable.rambu_hijau,R.drawable.rambu_coklat,R.drawable.rambu_jingga};
 
+    int[] suara = {R.raw.taugaksihwarnakuning,R.raw.taugaksihwarnaputih,R.raw.taugaksihwarnabiru,R.raw.taugaksihwarnahijau
+            ,R.raw.taugaksihwarnacoklat,R.raw.taugaksihwarnajingga};
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_data__tau_gak_sih);
+
 
         btn_tau = (ImageButton) findViewById(R.id.panahkiridatataugaksih);
         mp = MediaPlayer.create(this,R.raw.button_musik);
@@ -49,7 +55,7 @@ public class Data_TauGakSih extends AppCompatActivity {
         lm = new LinearLayoutManager(this);
         rv.setLayoutManager(lm);
 
-        Adapter = new TauGakSih_Activity(this,judul,deskripsi,gambar);
+        Adapter = new TauGakSih_Activity(this,judul,deskripsi,gambar,suara);
         rv.setAdapter(Adapter);
 
     }
@@ -60,4 +66,10 @@ public class Data_TauGakSih extends AppCompatActivity {
         startActivity(intentaugak);
         mp.start();
     }
+
+//    @Override
+//    protected void onPause() {
+//        super.onPause(); playerperingatan.release();
+//    }
+
 }

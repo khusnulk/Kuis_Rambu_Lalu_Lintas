@@ -27,14 +27,17 @@ public class LaranganActivity extends RecyclerView.Adapter<LaranganActivity.View
     String[] judulLarangan;
     String[] ketLarangan;
     int[] img;
-    MediaPlayer mp;
+    int[] suaralarangan;
+
+    boolean on = true;
+    MediaPlayer mp,play;
 
     public static class ViewHolder extends RecyclerView.ViewHolder{
 
         TextView judul,ket;
         ImageView gambar;
         ImageButton btn_larangan;
-
+        ImageView playerlarangan;
 
         public ViewHolder(@NonNull View itemView) {
             super(itemView);
@@ -43,15 +46,16 @@ public class LaranganActivity extends RecyclerView.Adapter<LaranganActivity.View
             ket = itemView.findViewById(R.id.ket_larangan);
             gambar = itemView.findViewById(R.id.img_larangan);
             btn_larangan = itemView.findViewById(R.id.btn_larangan);
-
+            playerlarangan = itemView.findViewById(R.id.tv_suaralarangan);
         }
     }
 
-    public LaranganActivity(Context ctx,String[]judulLarangan,String[]ketLarangan,int[]img){
+    public LaranganActivity(Context ctx,String[]judulLarangan,String[]ketLarangan,int[]img,int[]suaralarangan){
         this.ctx = ctx;
         this.judulLarangan = judulLarangan;
         this.ketLarangan = ketLarangan;
         this.img = img;
+        this.suaralarangan = suaralarangan;
     }
 
     @NonNull
@@ -71,6 +75,9 @@ public class LaranganActivity extends RecyclerView.Adapter<LaranganActivity.View
         holder.judul.setText(judulLarangan[position]);
         holder.ket.setText(ketLarangan[position]);
         holder.gambar.setImageResource(img[position]);
+        holder.playerlarangan.setBackgroundResource(suaralarangan[position]);
+
+ //        playstop= MediaPlayer.create(ctxpetunjuk,suara[position]);
 
         mp = MediaPlayer.create(ctx,R.raw.button_musik);
 
@@ -83,11 +90,35 @@ public class LaranganActivity extends RecyclerView.Adapter<LaranganActivity.View
                 intenlarangan.putExtra("detailjudullarangan",judulLarangan[position]);
                 intenlarangan.putExtra("detaildeskripsilarangan",ketLarangan[position]);
                 intenlarangan.putExtra("detailgambarlarangan",img[position]);
-
+                intenlarangan.putExtra("suaradetaillarangan",suaralarangan[position]);
                 ctx.startActivity(intenlarangan);
                 mp.start();
             }
         });
+
+
+//        holder.player.setOnClickListener(new View.OnClickListener() {
+//            @Override
+//            public void onClick(View v) {
+//                if (on){
+//
+//                    playstop = MediaPlayer.create(ctxpetunjuk,suara[position]);
+//                    on = false;
+//                }
+//
+//                if (playstop.isPlaying()){
+//                    playstop.stop();
+//                    playstop.release();
+//                    on = true;
+//
+//                    holder.player.setImageResource(R.drawable.volumebuttonoff);
+//                } else {
+//                    playstop.start();
+//                    holder.player.setImageResource(R.drawable.volumebuttonon);
+//
+//                }
+//            }
+//        });
     }
 
     @Override

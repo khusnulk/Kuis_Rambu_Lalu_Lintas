@@ -13,6 +13,7 @@ import android.widget.ImageButton;
 
 import com.praktek.kuis_rambu_lalu_lintas.Informasi_Activity;
 import com.praktek.kuis_rambu_lalu_lintas.Larangan.LaranganActivity;
+import com.praktek.kuis_rambu_lalu_lintas.Petunjuk.PetunjukData;
 import com.praktek.kuis_rambu_lalu_lintas.R;
 
 public class Data_Peringatan extends AppCompatActivity {
@@ -26,7 +27,7 @@ public class Data_Peringatan extends AppCompatActivity {
     RecyclerView.LayoutManager lm;
 
     String[] judul = {"Simpang Empat","Simpang 3 Sisi Kiri","Simpang 3 Sisi Kanan","Tikungan Ke Kiri","Tikungan Ke Kanan","Tikungan Ganda Kiri"
-            ,"Tikungan Ganda Kanan","Tikungan Tajam Ke Kiri" ,"Tikungan Tajam Ke Kanan","Tikungan Memutar Ke Kiri","Tikungan Memutar Ke Kana"
+            ,"Tikungan Ganda Kanan","Tikungan Tajam Ke Kiri" ,"Tikungan Tajam Ke Kanan","Tikungan Memutar Ke Kiri","Tikungan Memutar Kanan"
             ,"Melintasi Bundaran","Jalur Dua Arah","Rambu Turunan Landai","Peringatan Turunan Curam","Permukaan Jalan Licin","Jalan Rawan Runtuh"
             ,"Area Pejalan Kaki","Penyebrangan Pejalan Kaki","Isyarat Lalu lintas"};
 
@@ -58,6 +59,13 @@ public class Data_Peringatan extends AppCompatActivity {
             ,R.drawable.jalanlicin,R.drawable.rawanruntuh,R.drawable.pejalankaki
             ,R.drawable.penyebrang,R.drawable.rambu};
 
+
+    int[] suara = {R.raw.peringatansimpangempat_suara,R.raw.peringgatansimpang3sisikiri,R.raw.peringatansimpang3sisikanan_suara,R.raw.peringatantikungankekiri
+            ,R.raw.tikungan_kekanan,R.raw.tikungan_ganda_kiri,R.raw.tikungan_ganda_kanan
+            ,R.raw.tikungan_tajam_kiri,R.raw.tikungan_tajam_kanan,R.raw.tikungan_memutar_kiri,R.raw.tikungan_memutar_kanan
+            ,R.raw.melintasi_bundaran,R.raw.jalur_dua_arah,R.raw.turunan_landai,R.raw.turunan_curam
+            ,R.raw.jalan_licin,R.raw.rawan_runtuh,R.raw.area_pejalan_kaki,R.raw.penyebrangan_pejalan_kaki,R.raw.isyarat_lalu_intas};
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -72,7 +80,7 @@ public class Data_Peringatan extends AppCompatActivity {
         lm = new LinearLayoutManager(this);
         rv.setLayoutManager(lm);
 
-        Adapter = new PeringatanActivity(this,judul,ket,gambar);
+        Adapter = new PeringatanActivity(this,judul,ket,gambar,suara);
         rv.setAdapter(Adapter);
     }
 
@@ -80,5 +88,12 @@ public class Data_Peringatan extends AppCompatActivity {
         Intent intentpringatan =new Intent(Data_Peringatan.this, Informasi_Activity.class);
         startActivity(intentpringatan);
         mp.start();
+    }
+
+
+    @Override
+    public void onBackPressed() {
+        super.onBackPressed();
+        Data_Peringatan.this.finish();
     }
 }

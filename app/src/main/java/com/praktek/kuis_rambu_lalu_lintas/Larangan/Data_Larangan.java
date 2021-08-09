@@ -12,6 +12,7 @@ import android.widget.Button;
 import android.widget.ImageButton;
 
 import com.praktek.kuis_rambu_lalu_lintas.Informasi_Activity;
+import com.praktek.kuis_rambu_lalu_lintas.Petunjuk.PetunjukData;
 import com.praktek.kuis_rambu_lalu_lintas.R;
 
 public class Data_Larangan extends AppCompatActivity {
@@ -32,23 +33,23 @@ public class Data_Larangan extends AppCompatActivity {
 
 
     String[] keterangan = {"larangan masuk bagi semua kendaraan bermotor maupun tidak bermotor. Seperti motor, mobil, atau sepeda."
-            ,"pengguna jalan bahwa di area tertentu mereka dilarang untuk menghentikan kendaraannya."
-            ,"di area tertentu mereka dilarang untuk berjalan terus karena wajib berhenti"
-            ,"di area tertentu mereka dilarang untuk memarkirkan kendaraannya"
+            ,"digunakan untuk pengguna jalan bahwa di area tertentu mereka dilarang untuk menghentikan kendaraannya."
+            ,"memberitahukan pengguna jalan bahwa di area tertentu mereka dilarang untuk berjalan terus karena wajib berhenti"
+            ,"memberitahukan pengguna jalan bahwa di area tertentu mereka dilarang untuk memarkirkan kendaraannya"
             ,"memberitahukan pengguna jalan bahwa di area tertentu mereka dilarang untuk belok kiri."
             ,"memberitahukan pengguna jalan bahwa di area tertentu mereka dilarang untuk belok kanan."
-            ,"pengguna jalan bahwa di area tertentu mereka dilarang untuk memutar balik kendaraannya."
-            ,"pengguna jalan bahwa di area tertentu mereka dilarang untuk menyalip kendaraan lain."
+            ,"memberitahukan pengguna jalan bahwa di area tertentu mereka dilarang untuk memutar balik kendaraannya."
+            ,"memberitahukan pengguna jalan bahwa di area tertentu mereka dilarang untuk menyalip kendaraan lain."
             ,"dilarang untuk membunyikan isyarat suara.Seperti menghidupkan klakson."
             ,"dilarang menjalankan kendaraan dengan kecepatan lebih dari 80 km/jam."
             ,"kendaraan dilarang masuk dengan berat maksimal 8 ton"
             ,"jarak kendaraan kamu dengan kendaraan di depannya sejauh 25 m"
-            ,"kendaraan dengan ketinggian 4,2 m dilarang masuk."
-            ,"kendaraan yang memiliki lebar 2.9 m dilarang masuk"
-            ," memberitahukan pengguna jalan bahwa di area tertentu sepeda motor dilarang masuk."
+            ,"kendaraan dengan ketinggian lebih dari 4,2 m dilarang masuk."
+            ,"kendaraan yang memiliki lebar lebih dari 2.9 m dilarang masuk"
+            ,"memberitahukan pengguna jalan bahwa di area tertentu sepeda motor dilarang masuk."
             ,"memberitahukan pengguna jalan bahwa di area tertentu mobil dilarang masuk."
             ,"memberitahukan pengguna jalan bahwa di area tertentu sepeda dilarang masuk."
-            ,"pengguna jalan bahwa di area tertentu sepeda motor dan mobil dilarang masuk."};
+            ,"memberitahukan pengguna jalan bahwa di area tertentu sepeda motor dan mobil dilarang masuk."};
 
 
     int[] foto = {R.drawable.dilarangmasuk,R.drawable.dilarangberhenti,R.drawable.dilarangstop,R.drawable.dilarangparkir
@@ -56,6 +57,14 @@ public class Data_Larangan extends AppCompatActivity {
             ,R.drawable.dilarangmenyalip,R.drawable.klakson,R.drawable.kecepatan,R.drawable.beratmak
             ,R.drawable.jarakkendaraan,R.drawable.tinggimak,R.drawable.bataslebar,R.drawable.motorlarang
             ,R.drawable.mobil,R.drawable.sepeda,R.drawable.motordanmobil};
+
+
+    int[] suara = {R.raw.dilarangmasuk_suara,R.raw.dilarangberhenti_suara,R.raw.dilarangberjalanterus_suara,R.raw.dilarangparkir_suara
+            ,R.raw.dilarangbelokkiri,R.raw.dilarangbelokkanan,R.raw.dilarangmemutarbalik
+            ,R.raw.mendahuluikendaraan,R.raw.menghidupkanisyaratsuara,R.raw.btsmaksimalkecepatan,R.raw.rambubatastonase
+            ,R.raw.jarakantarkendaraan,R.raw.batasketingggiankendaraan_suara,R.raw.ruanglebarkendaraan,R.raw.motordilarangsuara
+            ,R.raw.mobildilarangsuara,R.raw.sepedadilarangmasuk,R.raw.laranganmotordanmobil};
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -71,7 +80,7 @@ public class Data_Larangan extends AppCompatActivity {
         lm = new LinearLayoutManager(this);
         rv.setLayoutManager(lm);
 
-        Adapter = new LaranganActivity(this,nama,keterangan,foto);
+        Adapter = new LaranganActivity(this,nama,keterangan,foto,suara);
         rv.setAdapter(Adapter);
     }
 
@@ -80,5 +89,12 @@ public class Data_Larangan extends AppCompatActivity {
         Intent larangankembali = new Intent(Data_Larangan.this,Informasi_Activity.class);
         startActivity(larangankembali);
         mp.start();
+    }
+
+
+    @Override
+    public void onBackPressed() {
+        super.onBackPressed();
+        Data_Larangan.this.finish();
     }
 }

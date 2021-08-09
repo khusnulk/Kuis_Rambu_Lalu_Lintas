@@ -1,0 +1,165 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".bermain.Level_5"
+    android:background="@drawable/wanimasi">
+
+
+    <ImageButton
+        android:layout_width="50dp"
+        android:layout_height="50dp"
+        android:id="@+id/btnhome5"
+        android:text="home"
+        android:textColor="@color/white"
+        android:textSize="20sp"
+        android:layout_marginStart="15dp"
+        android:layout_marginTop="15dp"
+        android:onClick="home"
+        android:background="@drawable/home_button"
+        android:layout_toRightOf="@id/btnulang5"/>
+
+    <ImageButton
+        android:id="@+id/btnulang5"
+        android:layout_width="50dp"
+        android:layout_height="50dp"
+        android:layout_marginStart="15dp"
+        android:layout_marginTop="15dp"
+        android:background="@drawable/retry_button"
+        android:onClick="ulang"
+        android:text="ulang"
+        android:textColor="@color/white"
+        android:textSize="20sp" />
+
+    <TextView
+        android:id="@+id/soal_text5"
+        android:layout_width="90dp"
+        android:layout_height="wrap_content"
+        android:text="Soal :"
+        android:textColor="@color/white"
+        android:textSize="28sp"
+        android:textStyle="bold"
+        android:layout_marginTop="80dp"
+        android:layout_marginStart="50dp"/>
+
+    <TextView
+        android:id="@+id/jumlahsoal5"
+        android:layout_width="100dp"
+        android:layout_height="wrap_content"
+        android:layout_toRightOf="@id/soal_text5"
+        android:textColor="@color/white"
+        android:textSize="28sp"
+        android:textStyle="bold"
+        android:layout_marginTop="80dp"/>
+
+    <!--skor-->
+
+    <TextView
+        android:id="@+id/score_text5"
+        android:layout_width="85dp"
+        android:layout_height="wrap_content"
+        android:text="Skor :"
+        android:textColor="@color/white"
+        android:textSize="28sp"
+        android:textStyle="bold"
+        android:layout_marginTop="80dp"
+        android:layout_marginStart="280dp"/>
+
+    <TextView
+        android:id="@+id/skor5"
+        android:layout_width="80dp"
+        android:layout_height="wrap_content"
+        android:textColor="@color/white"
+        android:textSize="28sp"
+        android:textStyle="bold"
+        android:layout_marginTop="80dp"
+        android:layout_toRightOf="@id/score_text5"/>
+
+    <!-- soal  & jawaban  -->
+
+    <ImageView
+        android:layout_width="370dp"
+        android:layout_height="250dp"
+        android:id="@+id/image_level5"
+        tools:srcCompat="@tools:sample/avatars"
+        android:layout_marginTop="150dp"
+        android:layout_marginEnd="50dp"
+        android:layout_marginStart="50dp"
+        android:layout_marginBottom="50dp"/>
+
+
+
+    <RelativeLayout
+        android:id="@+id/pilihanganda5"
+        android:layout_width="match_parent"
+        android:layout_height="220dp"
+        android:layout_marginTop="10dp"
+        android:layout_below="@id/image_level5">
+
+        <Button
+            android:layout_width="200dp"
+            android:layout_height="70dp"
+            android:id="@+id/btn_levelA5"
+            android:textSize="16sp"
+            android:textColor="@color/white"
+            android:textAlignment="center"
+            android:layout_marginTop="30dp"
+            android:maxLines="2"
+            android:layout_marginLeft="27dp"
+            android:onClick="klik_button"
+            android:background="@drawable/pil_buttonganda"
+            android:padding="3dp"/>
+
+        <Button
+            android:layout_width="200dp"
+            android:layout_height="70dp"
+            android:id="@+id/btn_levelB5"
+            android:textSize="16sp"
+            android:textColor="@color/white"
+            android:textAlignment="center"
+            android:layout_marginTop="30dp"
+            android:layout_marginLeft="25dp"
+            android:layout_marginRight="10dp"
+            android:layout_toRightOf="@id/btn_levelA5"
+            android:maxLines="2"
+            android:padding="3dp"
+            android:onClick="klik_button"
+            android:background="@drawable/pil_buttonganda"/>
+
+        <Button
+            android:layout_width="200dp"
+            android:layout_height="70dp"
+            android:id="@+id/btn_levelC5"
+            android:textSize="16sp"
+            android:textColor="@color/white"
+            android:textAlignment="center"
+            android:layout_marginTop="20dp"
+            android:layout_marginLeft="27dp"
+            android:layout_below="@id/btn_levelA5"
+            android:maxLines="2"
+            android:padding="3dp"
+            android:onClick="klik_button"
+            android:background="@drawable/pil_buttonganda"/>
+
+        <Button
+            android:layout_width="200dp"
+            android:layout_height="70dp"
+            android:id="@+id/btn_levelD5"
+            android:textSize="16sp"
+            android:textColor="@color/white"
+            android:textAlignment="center"
+            android:layout_marginTop="20dp"
+            android:layout_below="@id/btn_levelA5"
+            android:layout_toRightOf="@id/btn_levelC5"
+            android:layout_marginLeft="25dp"
+            android:layout_marginRight="10dp"
+            android:maxLines="2"
+            android:padding="3dp"
+            android:onClick="klik_button"
+            android:background="@drawable/pil_buttonganda"/>
+
+    </RelativeLayout>
+
+</RelativeLayout>

@@ -11,6 +11,7 @@ import android.view.View;
 import android.widget.ImageButton;
 
 import com.praktek.kuis_rambu_lalu_lintas.Informasi_Activity;
+import com.praktek.kuis_rambu_lalu_lintas.Petunjuk.PetunjukData;
 import com.praktek.kuis_rambu_lalu_lintas.R;
 
 public class Data_Perintah extends AppCompatActivity {
@@ -34,20 +35,27 @@ public class Data_Perintah extends AppCompatActivity {
             ,"menyatakan perintah kepada pengguna jalan untuk mengikuti arah yang ditunjukkan saat memasuki bundaran."
             ,"digunakan untuk menyatakan perintah kepada pengguna jalan untuk wajib belok kiri."
             ,"digunakan untuk menyatakan perintah kepada pengguna jalan untuk wajib belok kanan."
-            ,"Rambu ini menyatakan perintah kepada pengguna jalan untuk berkendara dengan kecepatan minimum"
-            ,"perintah kepada pengendara motor untuk menggunakan jalur atau lajur lalu lintas khusus sepeda motor."
-            ,"menyatakan perintah kepada pengendara bus untuk menggunakan jalur atau lajur lalu lintas khusus bus."
-            ,"kepada pengendara sepeda untuk menggunakan jalur atau lajur lalu lintas khusus pengendara sepeda."
+            ,"rambu ini menyatakan perintah kepada pengguna jalan untuk berkendara dengan kecepatan minimum"
+            ,"digunakan untuk menyatakan perintah kepada pengendara motor untuk menggunakan jalur atau lajur lalu lintas khusus sepeda motor."
+            ,"digunakan untuk menyatakan perintah kepada pengendara bus untuk menggunakan jalur atau lajur lalu lintas khusus bus."
+            ,"digunakan untuk menyatakan perintah kepada pengendara sepeda untuk menggunakan jalur atau lajur lalu lintas khusus pengendara sepeda."
             ,"digunakan untuk menyatakan perintah kepada pejalan kaki untuk menggunakan jalur khusus pejalan kaki."
-            ,"menyatakan perintah kepada pejalan kaki untuk menggunakan jalur atau khusus untuk menyebrangi jalan."
-            ,"perintah kepada bus untuk menggunakan jalur atau lajur lalu lintas khusus perhentian bus"
+            ,"digunakan untuk menyatakan perintah kepada pejalan kaki untuk menggunakan jalur khusus untuk menyebrangi jalan."
+            ,"digunakan untuk menyatakan perintah kepada bus untuk menggunakan jalur atau lajur lalu lintas khusus perhentian bus,agar bus tidak berhenti disembarangan tempat"
             ,"digunakan untuk menyatakan perintah kepada pengendara untuk menggunakan tempat khusus parkir kendaraan."
-            ,"Rambu ini tempat khusus parkir bagi orang yang berkebutuhan khusus.Misalnya seseorang yang menggunakan kursi roda."};
+            ,"digunakan untuk menyatakan perintah untuk menggunakan tempat khusus parkir bagi orang yang berkebutuhan khusus.Misalnya seseorang yang menggunakan kursi roda."};
 
     int[] gambar = {R.drawable.rambubelokkiri, R.drawable.rambubelokanan, R.drawable.rambuserongjalurkiri,
             R.drawable.rambuserongjalurkanan,R.drawable.rambubundaran,R.drawable.perintahbelokkiri,R.drawable.perintahbelokkanan
-            ,R.drawable.enampuluhkm,R.drawable.jalurmotor,R.drawable.jalurangkutanumum,R.drawable.jalursepeda,R.drawable.perintahpejalankaki
-            ,R.drawable.penyebaranganjalan,R.drawable.haltebus,R.drawable.tempatparkir,R.drawable.parkirkhusus};
+            ,R.drawable.enampuluhkm,R.drawable.jalurmotor,R.drawable.jalurangkutanumum,R.drawable.jalursepeda
+            ,R.drawable.perintahpejalankaki,R.drawable.penyebaranganjalan,R.drawable.haltebus,R.drawable.tempatparkir
+            ,R.drawable.parkirkhusus};
+
+    int[] suara = {R.raw.perintahmengikutiarahkekiri,R.raw.perintahmengikutiarahkekanan,R.raw.perintahmemasukijalurkiri
+            ,R.raw.perintahmemasukijalurkanan,R.raw.mengikuti_arah_bundaran,R.raw.belok_kiri,R.raw.belok_kanan
+            ,R.raw.minimum_kecepatan,R.raw.menggunakan_jalur_motor,R.raw.jalur_bus,R.raw.jalur_sepeda
+            ,R.raw.pejalan_kaki,R.raw.jalur_penyeberangan,R.raw.rambu_halte_bus,R.raw.rambu_tempatparkir
+            ,R.raw.parkir_khusus};
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -62,7 +70,7 @@ public class Data_Perintah extends AppCompatActivity {
         layoutManager = new LinearLayoutManager(this);
         recyclerView.setLayoutManager(layoutManager);
 
-        programAdapter = new PerintahActivity(this,listdata,keterangan,gambar);
+        programAdapter = new PerintahActivity(this,listdata,keterangan,gambar,suara);
         recyclerView.setAdapter(programAdapter);
 
 
@@ -74,5 +82,11 @@ public class Data_Perintah extends AppCompatActivity {
         Intent kembali = new Intent(Data_Perintah.this, Informasi_Activity.class);
         startActivity(kembali);
         mp.start();
+    }
+
+    @Override
+    public void onBackPressed() {
+        super.onBackPressed();
+        Data_Perintah.this.finish();
     }
 }

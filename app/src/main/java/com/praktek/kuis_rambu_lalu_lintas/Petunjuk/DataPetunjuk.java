@@ -11,7 +11,9 @@ import android.widget.ImageButton;
 import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
+import android.widget.ToggleButton;
 
+import androidx.activity.OnBackPressedCallback;
 import androidx.annotation.NonNull;
 import androidx.constraintlayout.widget.ConstraintLayout;
 import androidx.recyclerview.widget.RecyclerView;
@@ -24,13 +26,19 @@ public class DataPetunjuk extends RecyclerView.Adapter<DataPetunjuk.ViewHolder> 
     String[] judulpetunjuk;
     String[] ketpetunjuk;
     int[] img;
-    MediaPlayer mp;
+    int[] suara;
+
+//boolean on = true;
+    MediaPlayer mp,playstop;
+
 
     public static class ViewHolder extends RecyclerView.ViewHolder{
 
         TextView judul,ket;
         ImageView gambar;
         ImageButton btn_lanjut;
+        ImageView player;
+
 
 
         public ViewHolder(@NonNull View itemView) {
@@ -40,15 +48,17 @@ public class DataPetunjuk extends RecyclerView.Adapter<DataPetunjuk.ViewHolder> 
             ket = itemView.findViewById(R.id.ket_petunjuk);
             gambar = itemView.findViewById(R.id.img_petunjuk);
             btn_lanjut = itemView.findViewById(R.id.btn_petunjuk);
-
+            player = itemView.findViewById(R.id.tv_suara);
         }
     }
 
-    public DataPetunjuk(Context ctxpetunjuk,String[]judulpetunjuk,String[]ketpetunjuk,int[]img){
+//    buat constructor
+    public DataPetunjuk(Context ctxpetunjuk,String[]judulpetunjuk,String[]ketpetunjuk,int[]img,int[]suara){
         this.ctxpetunjuk = ctxpetunjuk;
         this.judulpetunjuk = judulpetunjuk;
         this.ketpetunjuk = ketpetunjuk;
         this.img = img;
+        this.suara = suara;
     }
 
     @NonNull
@@ -68,6 +78,9 @@ public class DataPetunjuk extends RecyclerView.Adapter<DataPetunjuk.ViewHolder> 
         holder.judul.setText(judulpetunjuk[position]);
         holder.ket.setText(ketpetunjuk[position]);
         holder.gambar.setImageResource(img[position]);
+        holder.player.setBackgroundResource(suara[position]);
+
+//      playstop= MediaPlayer.create(ctxpetunjuk,suara[position]);
 
         mp = MediaPlayer.create(ctxpetunjuk,R.raw.button_musik);
 
@@ -81,11 +94,36 @@ public class DataPetunjuk extends RecyclerView.Adapter<DataPetunjuk.ViewHolder> 
               iten.putExtra("detailjudul",judulpetunjuk[position]);
               iten.putExtra("deskripsipetunjuk",ketpetunjuk[position]);
               iten.putExtra("gambardetail",img[position]);
-
+              iten.putExtra("suaradetail",suara[position]);
               ctxpetunjuk.startActivity(iten);
               mp.start();
             }
         });
+
+//        holder.player.setOnClickListener(new View.OnClickListener() {
+//            @Override
+//            public void onClick(View v) {
+//                if (on){
+//
+//                    playstop = MediaPlayer.create(ctxpetunjuk,suara[position]);
+//                    on = false;
+//                }
+//
+//                if (playstop.isPlaying()){
+//                    playstop.stop();
+//                    playstop.release();
+//                    on = true;
+//
+//                    holder.player.setImageResource(R.drawable.volumebuttonoff);
+//                } else {
+//                    playstop.start();
+//                    holder.player.setImageResource(R.drawable.volumebuttonon);
+//
+//                }
+//            }
+//        });
+
+
 
     }
 

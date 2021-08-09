@@ -22,13 +22,17 @@ public class PerintahActivity extends RecyclerView.Adapter<PerintahActivity.View
     String[] judulperintah;
     String[] ketperintah;
     int[] img;
-    MediaPlayer mp;
+    int[]suaraperintah;
+
+//    boolean on = true;
+    MediaPlayer mp,playperintah;
 
     public static class ViewHolder extends RecyclerView.ViewHolder{
 
         TextView title,ket;
         ImageView gambar;
         ImageButton btn;
+        ImageView playerperintah;
 
         public ViewHolder(@NonNull View itemView) {
             super(itemView);
@@ -36,14 +40,16 @@ public class PerintahActivity extends RecyclerView.Adapter<PerintahActivity.View
             ket = itemView.findViewById(R.id.ket_perintah);
             gambar = itemView.findViewById(R.id.img_perintah);
             btn = itemView.findViewById(R.id.btn_perintah);
+            playerperintah = itemView.findViewById(R.id.tv_suaraperintah);
         }
     }
 
-    public PerintahActivity(Context ctx,String[] judulperintah,String[]ketperintah,int[] img){
+    public PerintahActivity(Context ctx,String[] judulperintah,String[]ketperintah,int[] img,int[]suaraperintah){
         this.ctx = ctx;
         this.judulperintah = judulperintah;
         this.ketperintah = ketperintah;
         this.img = img;
+        this.suaraperintah = suaraperintah;
     }
 
     @NonNull
@@ -63,6 +69,9 @@ public class PerintahActivity extends RecyclerView.Adapter<PerintahActivity.View
         holder.title.setText(judulperintah[position]);
         holder.ket.setText(ketperintah[position]);
         holder.gambar.setImageResource(img[position]);
+        holder.playerperintah.setBackgroundResource(suaraperintah[position]);
+
+//        playstop= MediaPlayer.create(ctxpetunjuk,suara[position]);
 
         mp = MediaPlayer.create(ctx,R.raw.button_musik);
 
@@ -75,11 +84,35 @@ public class PerintahActivity extends RecyclerView.Adapter<PerintahActivity.View
                 intent_perintah.putExtra("detailperintahjudul",judulperintah[position]);
                 intent_perintah.putExtra("detaildeskripsi",ketperintah[position]);
                 intent_perintah.putExtra("detailgambar",img[position]);
-
+                intent_perintah.putExtra("suaradetailperintah",suaraperintah[position]);
                 ctx.startActivity(intent_perintah);
                 mp.start();
             }
         });
+
+
+//        holder.playerperintah.setOnClickListener(new View.OnClickListener() {
+//            @Override
+//            public void onClick(View v) {
+//                if (on){
+//
+//                    playstop = MediaPlayer.create(ctxpetunjuk,suara[position]);
+//                    on = false;
+//                }
+//
+//                if (playstop.isPlaying()){
+//                    playstop.stop();
+//                    playstop.release();
+//                    on = true;
+//
+//                    holder.player.setImageResource(R.drawable.volumebuttonoff);
+//                } else {
+//                    playstop.start();
+//                    holder.player.setImageResource(R.drawable.volumebuttonon);
+//
+//                }
+//            }
+//        });
     }
 
     @Override

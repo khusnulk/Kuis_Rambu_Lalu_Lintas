@@ -10,19 +10,21 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.TextView;
 import android.widget.Toast;
+import android.widget.ToggleButton;
 
 import com.praktek.kuis_rambu_lalu_lintas.bermain.Mulai_Bermain;
 import com.praktek.kuis_rambu_lalu_lintas.bermain.Score_Activity;
-import com.praktek.kuis_rambu_lalu_lintas.bermain.SkorTertinggi;
-//
-//import com.praktek.kuis_rambu_lalu_lintas.bermain.Level1;
-//import com.praktek.kuis_rambu_lalu_lintas.bermain.Level_1;
 
 public class MainActivity extends AppCompatActivity {
 
-     MediaPlayer suara_button;
-//     MediaPlayer bg_musik;
-    TextView mulai,informasi,score,tentang,keluar;
+    TextView mulai,informasi,pengaturan,tentang,keluar;
+
+    Pengaturan_Activity ambil = new Pengaturan_Activity();
+
+
+    MediaPlayer buttonmusikmain;
+    MediaPlayer bgmusikmain;
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -31,14 +33,17 @@ public class MainActivity extends AppCompatActivity {
 
         mulai = findViewById(R.id.btn_mulai);
         informasi = findViewById(R.id.btn_Informasi);
-        score = findViewById(R.id.btn_Score);
+//        pengaturan = findViewById(R.id.btn_Score);
         tentang = findViewById(R.id.btn_Tentang);
         keluar = findViewById(R.id.btn_Keluar);
 
-        suara_button  = MediaPlayer.create(this,R.raw.button_musik);
-//        bg_musik = MediaPlayer.create(this,R.raw.bg_musik);
-//        bg_musik.start();
-//        bg_musik.setLooping(true); //ini untuk melakukan perulangan lagu
+
+        buttonmusikmain = MediaPlayer.create(this,R.raw.button_musik);
+        bgmusikmain= MediaPlayer.create(this,R.raw.bg_musik);
+
+        bgmusikmain.start();
+        bgmusikmain.setLooping(true);
+
 
 
       mulai.setOnClickListener(new View.OnClickListener() {
@@ -47,8 +52,8 @@ public class MainActivity extends AppCompatActivity {
 
               Intent intentmulai = new Intent(MainActivity.this, Mulai_Bermain.class);
               startActivity(intentmulai);
-              suara_button.start();
-//              bg_musik.pause();
+             buttonmusikmain.start();
+             bgmusikmain.release();
           }
       });
 
@@ -58,30 +63,27 @@ public class MainActivity extends AppCompatActivity {
 
               Intent informasiintent = new Intent(MainActivity.this,Informasi_Activity.class);
               startActivity(informasiintent);
-              suara_button.start();
+              buttonmusikmain.start();
           }
       });
 
-      score.setOnClickListener(new View.OnClickListener() {
-          @Override
-          public void onClick(View v) {
-
-//              Intent skorintent = new Intent(MainActivity.this,About_Activity.class);
+//      pengaturan.setOnClickListener(new View.OnClickListener() {
+//          @Override
+//          public void onClick(View v) {
+//
+//              Intent skorintent = new Intent(MainActivity.this, Score_Activity.class);
 //              startActivity(skorintent);
-//              suara_button.start();
-          }
-      });
+//             buttonmusikmain.start();
+//          }
+//      });
 
       tentang.setOnClickListener(new View.OnClickListener() {
           @Override
           public void onClick(View v) {
 
-              suara_button.start();
+//              ambil.btnsuara();
               Intent movetoabout = new Intent(MainActivity.this,About_Activity.class);
               startActivity(movetoabout);
-//
-//              AlertDialog.Builder halamantentang = new AlertDialog.Builder(this)
-//                .setMessage("R.drawable.restoran");
 
 
           }
@@ -91,7 +93,7 @@ public class MainActivity extends AppCompatActivity {
           @Override
           public void onClick(View v) {
 
-              suara_button.start();
+             buttonmusikmain.start();
               keluar_aplikasi();
           }
       });
@@ -123,10 +125,10 @@ public class MainActivity extends AppCompatActivity {
         kata.show();
     }
 
-    //    method ini untuk menghentikan/stop musik saat keluar aplikasi
-//    @Override
-//    protected void onPause() {
-//        super.onPause();
-//        bg_musik.release();
-//    }
+//        method ini untuk menghentikan/stop musik saat keluar aplikasi
+    @Override
+    protected void onPause() {
+        super.onPause();
+       bgmusikmain.release();
+    }
 }

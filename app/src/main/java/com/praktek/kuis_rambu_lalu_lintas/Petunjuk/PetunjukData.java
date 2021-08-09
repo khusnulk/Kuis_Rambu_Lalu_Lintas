@@ -17,6 +17,7 @@ public class PetunjukData extends AppCompatActivity {
 
     MediaPlayer mp;
     ImageButton btnpetunjuk;
+    ImageButton playandstop;
 
 
     RecyclerView rv;
@@ -25,7 +26,7 @@ public class PetunjukData extends AppCompatActivity {
 
     String[] title = {"Petunjuk Lokasi SPBU","Petunjuk Lokasi Mesjid","Petunjuk Lokasi Gereja","Lokasi Tempat Makan","Lokasi Pelayanan Kesehatan",
             "Petunjuk Tempat Wisata","Rambu Petunjuk Rute","Petunjuk Lokasi Wihara","Petunjuk Lokasi Pura","Lokasi Telepon Umun","Lokasi Bandar Udara",
-    "Lokasi Stasiun Kereta","Terminal Kendaraan Umum","Petunjuk Masuk To","Petunjuk Keluar Tol"};
+    "Lokasi Stasiun Kereta","Terminal Kendaraan Umum","Petunjuk Masuk Tol","Petunjuk Keluar Tol"};
 
     String[] deskripsi = {"Digunakan untuk memberikan informasi mengenai lokasi pengisian bahan bakar motor atau mobil."
             ,"digunakan untuk memberikan informasi mengenai salah satu lokasi fasilitas umum, yaitu masjid."
@@ -43,10 +44,13 @@ public class PetunjukData extends AppCompatActivity {
             ,"digunakan untuk memberikan informasi kepada pengguna jalan yang ingin memasuki jalan tol."
             ,"digunakan untuk memberikan informasi kepada pengguna jalan mengenai tempat keluar dari jalan tol."};
 
-    int[] picture = {R.drawable.spbu,R.drawable.masjid,R.drawable.gereja,R.drawable.restoran,R.drawable.klinik,R.drawable.wisata,R.drawable.rute
-            ,R.drawable.wihara,R.drawable.pura,R.drawable.telepon,R.drawable.bandara,R.drawable.kereta,R.drawable.kendaraanumum,R.drawable.masuktol,R.drawable.keluartol};
+    int[] picture = {R.drawable.spbu,R.drawable.masjid,R.drawable.gereja,R.drawable.restoran,R.drawable.klinik
+            ,R.drawable.wisata,R.drawable.rute,R.drawable.wihara,R.drawable.pura,R.drawable.telepon
+            ,R.drawable.bandara,R.drawable.kereta,R.drawable.kendaraanumum,R.drawable.masuktol,R.drawable.keluartol};
 
-
+    int[] suara = {R.raw.petunjuklokasispbu,R.raw.petunjuklokasimesjid,R.raw.petunjuklokasigereja,R.raw.petunjuklokasitempatmakan
+            ,R.raw.klinik_suara,R.raw.wisata_suara,R.raw.rute_suara,R.raw.wihara_suara,R.raw.pura_suara,R.raw.telepon_umum_suara
+            ,R.raw.bandara_suara,R.raw.kereta_suara,R.raw.kendaraan_umum_suara,R.raw.masuk_tol_suara,R.raw.keluartol_suara};
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -56,13 +60,12 @@ public class PetunjukData extends AppCompatActivity {
         mp = MediaPlayer.create(this,R.raw.button_musik);
         btnpetunjuk = (ImageButton) findViewById(R.id.panahkiridatapetunjuk);
 
-
         rv = findViewById(R.id.rv_petunjuk);
         rv.setHasFixedSize(true);
         lm = new LinearLayoutManager(this);
         rv.setLayoutManager(lm);
 
-        Adapter = new DataPetunjuk(this,title,deskripsi,picture);
+        Adapter = new DataPetunjuk(this,title,deskripsi,picture,suara);
         rv.setAdapter(Adapter);
     }
 
@@ -71,5 +74,11 @@ public class PetunjukData extends AppCompatActivity {
         Intent intentpetunjuk = new Intent(PetunjukData.this, Informasi_Activity.class);
         startActivity(intentpetunjuk);
         mp.start();
+    }
+
+    @Override
+    public void onBackPressed() {
+        super.onBackPressed();
+            PetunjukData.this.finish();
     }
 }

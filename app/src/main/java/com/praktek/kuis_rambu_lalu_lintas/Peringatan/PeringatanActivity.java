@@ -22,7 +22,10 @@ public class PeringatanActivity extends RecyclerView.Adapter<PeringatanActivity.
     String[] judulperingatan;
     String[] ketperingatan;
     int[] foto;
-    MediaPlayer mp;
+    int[] suaraperingatan;
+
+    boolean on =true;
+    MediaPlayer mp,player;
 
 
     public static class ViewHolder extends RecyclerView.ViewHolder {
@@ -30,6 +33,7 @@ public class PeringatanActivity extends RecyclerView.Adapter<PeringatanActivity.
         TextView judul,ket;
         ImageView images;
         ImageButton btnperingatan;
+        ImageView playerperingatan;
 
         public ViewHolder(@NonNull View itemView) {
             super(itemView);
@@ -38,16 +42,17 @@ public class PeringatanActivity extends RecyclerView.Adapter<PeringatanActivity.
             ket = itemView.findViewById(R.id.ket_peringatan);
             images = itemView.findViewById(R.id.img_peringatan);
             btnperingatan = itemView.findViewById(R.id.btn_peringatan);
-
+            playerperingatan = itemView.findViewById(R.id.tv_suaraperingatan);
         }
     }
 
-    public PeringatanActivity(Context ctxPeringatan, String[]judulperingatan, String[]ketperingatan, int[]foto){
+    public PeringatanActivity(Context ctxPeringatan, String[]judulperingatan, String[]ketperingatan, int[]foto,int[]suaraperingatan){
 
         this.ctxPeringatan = ctxPeringatan;
         this.judulperingatan = judulperingatan;
         this.ketperingatan = ketperingatan;
         this.foto = foto;
+        this.suaraperingatan = suaraperingatan;
     }
 
 
@@ -69,6 +74,9 @@ public class PeringatanActivity extends RecyclerView.Adapter<PeringatanActivity.
         holder.judul.setText(judulperingatan[position]);
         holder.ket.setText(ketperingatan[position]);
         holder.images.setImageResource(foto[position]);
+        holder.playerperingatan.setBackgroundResource(suaraperingatan[position]);
+
+        //        playstop= MediaPlayer.create(ctxpetunjuk,suara[position]);
 
         mp = MediaPlayer.create(ctxPeringatan,R.raw.button_musik);
 
@@ -81,11 +89,35 @@ public class PeringatanActivity extends RecyclerView.Adapter<PeringatanActivity.
                 intenperingatan.putExtra("detailjudulperingatan",judulperingatan[position]);
                 intenperingatan.putExtra("detaildeskripsiperingatan",ketperingatan[position]);
                 intenperingatan.putExtra("detailgambarperingatan",foto[position]);
-
+                intenperingatan.putExtra("suaradetailperingatan",suaraperingatan[position]);
                 ctxPeringatan.startActivity(intenperingatan);
                 mp.start();
             }
         });
+
+
+//        holder.player.setOnClickListener(new View.OnClickListener() {
+//            @Override
+//            public void onClick(View v) {
+//                if (on){
+//
+//                    playstop = MediaPlayer.create(ctxpetunjuk,suara[position]);
+//                    on = false;
+//                }
+//
+//                if (playstop.isPlaying()){
+//                    playstop.stop();
+//                    playstop.release();
+//                    on = true;
+//
+//                    holder.player.setImageResource(R.drawable.volumebuttonoff);
+//                } else {
+//                    playstop.start();
+//                    holder.player.setImageResource(R.drawable.volumebuttonon);
+//
+//                }
+//            }
+//        });
     }
 
     @Override
