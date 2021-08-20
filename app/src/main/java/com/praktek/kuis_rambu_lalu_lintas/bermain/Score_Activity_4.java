@@ -7,6 +7,7 @@ import android.content.SharedPreferences;
 import android.media.MediaPlayer;
 import android.os.Bundle;
 import android.view.View;
+import android.view.WindowManager;
 import android.widget.Button;
 import android.widget.TextView;
 
@@ -24,7 +25,7 @@ public class Score_Activity_4 extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_score__4);
-
+        getWindow().setFlags(WindowManager.LayoutParams.FLAG_FULLSCREEN,WindowManager.LayoutParams.FLAG_FULLSCREEN);
 
         final MediaPlayer suara_button_score = MediaPlayer.create(this,R.raw.button_musik);
         Skor_Tertinggi = findViewById(R.id.skor4);
@@ -50,7 +51,7 @@ public class Score_Activity_4 extends AppCompatActivity {
         }
 
 // shared preference untuk menampung skor tetinggi yang bersifat sementara
-        SharedPreferences inisial = getSharedPreferences("Getskor4",MODE_PRIVATE);
+        SharedPreferences inisial = getSharedPreferences("GETSKOr4",MODE_PRIVATE);
         int tertinggi = inisial.getInt("yang Tertinggi4",0);
 
 

@@ -58,10 +58,10 @@
                android:layout_marginLeft="20dp"
                android:layout_toRightOf="@id/cobalagi"
                android:background="@drawable/pil_buttonganda"
-               android:text="MENU"
+               android:text="HOME"
                android:textColor="@color/white"
                android:textSize="20sp"
-               android:onClick="menu"/>
+               android:onClick="homesalah"/>
        </RelativeLayout>
 
 </RelativeLayout>

@@ -8,22 +8,22 @@
         android:label="Kuis Rambu Lalu Lintas"
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
+        android:resizeableActivity="true"
         android:theme="@style/Theme.Kuis_Rambu_Lalu_Lintas">
-        <activity android:name=".Taugaksih.Detail_Taugaksih"></activity>
-        <activity android:name=".bermain.Score_Salah_Actvity" />
-        <activity android:name=".Pengaturan_Activity" />
-        <activity android:name=".simpan" />
-        <activity android:name=".bermain.Score_Activity_5" />
-        <activity android:name=".bermain.Score_Activity_4" />
-        <activity android:name=".bermain.Score_Activity_3" />
-        <activity android:name=".bermain.Level_5" />
-        <activity android:name=".bermain.Level_4" />
-        <activity android:name=".bermain.Level_3" />
-        <activity android:name=".bermain.Score_Activity_2" />
-        <activity android:name=".bermain.Level_2" />
-        <activity android:name=".bermain.Level_1" />
-        <activity android:name=".About_Activity" />
-        <activity android:name=".bermain.Score_Activity" />
+        <activity android:name=".Peringatan.Quis_Peringatan" android:screenOrientation="portrait" ></activity>
+        <activity android:name=".Taugaksih.Detail_Taugaksih" android:screenOrientation="portrait" />
+        <activity android:name=".bermain.Score_Salah_Actvity" android:screenOrientation="portrait" />
+        <activity android:name=".bermain.Score_Activity_5" android:screenOrientation="portrait" />
+        <activity android:name=".bermain.Score_Activity_4" android:screenOrientation="portrait" />
+        <activity android:name=".bermain.Score_Activity_3" android:screenOrientation="portrait"  />
+        <activity android:name=".bermain.Level_5" android:screenOrientation="portrait"  />
+        <activity android:name=".bermain.Level_4" android:screenOrientation="portrait" />
+        <activity android:name=".bermain.Level_3" android:screenOrientation="portrait" />
+        <activity android:name=".bermain.Score_Activity_2" android:screenOrientation="portrait" />
+        <activity android:name=".bermain.Level_2" android:screenOrientation="portrait" />
+        <activity android:name=".bermain.Level_1" android:screenOrientation="portrait"  />
+        <activity android:name=".About_Activity" android:screenOrientation="portrait" />
+        <activity android:name=".bermain.Score_Activity" android:screenOrientation="portrait" />
         <activity
             android:name=".Taugaksih.Data_TauGakSih"
             android:screenOrientation="portrait" />

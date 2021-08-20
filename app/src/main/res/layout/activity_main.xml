@@ -7,14 +7,12 @@
     tools:context=".MainActivity"
     android:background="@drawable/wanimasi">
 
-    <TextView
+    <ImageView
         android:layout_width="match_parent"
         android:layout_height="150dp"
-        android:text="Mari Mengenal Rambu Lalu Lintas"
-        android:textColor="@color/red"
         android:gravity="center"
-        android:textSize="20pt"
-        android:layout_marginTop="40dp"/>
+        android:layout_marginTop="40dp"
+        android:background="@drawable/judul"/>
 
     <TextView
         android:layout_width="250dp"

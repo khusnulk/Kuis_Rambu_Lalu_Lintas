@@ -7,6 +7,7 @@
     tools:context=".bermain.Score_Activity"
     android:background="@drawable/wanimasi">
 
+
     <TextView
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
@@ -23,12 +24,12 @@
         android:layout_height="wrap_content"
         android:layout_marginTop="250dp"
         android:gravity="center"
-        android:padding="7dp"
-        android:text="0"
         android:textAlignment="center"
+        android:padding="7dp"
         android:textColor="@color/maroon"
         android:textSize="100sp"
-        android:textStyle="bold" />
+        android:textStyle="bold"
+        android:text="0"/>
 
     <TextView
         android:id="@+id/skor"
@@ -88,6 +89,8 @@
             android:textColor="@color/white"
             android:textSize="20sp" />
     </RelativeLayout>
+
+
 
 
 </RelativeLayout>

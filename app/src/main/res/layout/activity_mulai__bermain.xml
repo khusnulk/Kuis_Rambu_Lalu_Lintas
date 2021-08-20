@@ -39,7 +39,7 @@
             android:layout_marginLeft="5dp"
             android:layout_marginTop="24dp"
             android:layout_marginRight="5dp"
-            android:background="@drawable/level1gembok"
+            android:background="@drawable/bg_level"
             android:onClick="mainlv1" />
 
         <TextView

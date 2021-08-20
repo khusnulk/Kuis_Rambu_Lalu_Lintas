@@ -9,6 +9,7 @@ import android.content.Intent;
 import android.media.MediaPlayer;
 import android.os.Bundle;
 import android.view.View;
+import android.view.WindowManager;
 import android.widget.ImageButton;
 
 import com.praktek.kuis_rambu_lalu_lintas.Informasi_Activity;
@@ -70,6 +71,7 @@ public class Data_Peringatan extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_data__peringatan);
+        getWindow().setFlags(WindowManager.LayoutParams.FLAG_FULLSCREEN,WindowManager.LayoutParams.FLAG_FULLSCREEN);
 
         btnperingatan = (ImageButton) findViewById(R.id.panahkiridataperingatan);
         mp = MediaPlayer.create(this,R.raw.button_musik);

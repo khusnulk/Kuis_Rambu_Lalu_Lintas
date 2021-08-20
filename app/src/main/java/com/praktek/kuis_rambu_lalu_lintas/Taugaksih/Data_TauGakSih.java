@@ -8,11 +8,10 @@ import android.content.Intent;
 import android.media.MediaPlayer;
 import android.os.Bundle;
 import android.view.View;
+import android.view.WindowManager;
 import android.widget.ImageButton;
-import android.widget.ImageView;
 
 import com.praktek.kuis_rambu_lalu_lintas.Informasi_Activity;
-import com.praktek.kuis_rambu_lalu_lintas.Pengaturan_Activity;
 import com.praktek.kuis_rambu_lalu_lintas.R;
 
 public class Data_TauGakSih extends AppCompatActivity {
@@ -44,6 +43,7 @@ public class Data_TauGakSih extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_data__tau_gak_sih);
+        getWindow().setFlags(WindowManager.LayoutParams.FLAG_FULLSCREEN,WindowManager.LayoutParams.FLAG_FULLSCREEN);
 
 
         btn_tau = (ImageButton) findViewById(R.id.panahkiridatataugaksih);

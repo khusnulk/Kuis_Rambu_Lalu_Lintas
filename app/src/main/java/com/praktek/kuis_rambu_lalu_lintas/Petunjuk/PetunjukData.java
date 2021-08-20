@@ -8,6 +8,7 @@ import android.content.Intent;
 import android.media.MediaPlayer;
 import android.os.Bundle;
 import android.view.View;
+import android.view.WindowManager;
 import android.widget.ImageButton;
 
 import com.praktek.kuis_rambu_lalu_lintas.Informasi_Activity;
@@ -56,6 +57,7 @@ public class PetunjukData extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_petunjuk_data);
+        getWindow().setFlags(WindowManager.LayoutParams.FLAG_FULLSCREEN,WindowManager.LayoutParams.FLAG_FULLSCREEN);
 
         mp = MediaPlayer.create(this,R.raw.button_musik);
         btnpetunjuk = (ImageButton) findViewById(R.id.panahkiridatapetunjuk);

@@ -6,6 +6,7 @@ import android.content.Intent;
 import android.media.MediaPlayer;
 import android.os.Bundle;
 import android.view.View;
+import android.view.WindowManager;
 import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.TextView;
@@ -26,7 +27,6 @@ public class Level_1 extends AppCompatActivity {
 
     //    memanggil adapter
     private Adapter_Level_1 Alevel1 = new Adapter_Level_1();
-    private Mulai_Bermain main = new Mulai_Bermain();
 
     //   cek jawban benar atau salah
     private   String cek_answer;
@@ -46,7 +46,7 @@ public class Level_1 extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_level_1);
-
+        getWindow().setFlags(WindowManager.LayoutParams.FLAG_FULLSCREEN,WindowManager.LayoutParams.FLAG_FULLSCREEN);
 
         btn1 = findViewById(R.id.btn_levelA1);
         btn2 = findViewById(R.id.btn_levelB1);

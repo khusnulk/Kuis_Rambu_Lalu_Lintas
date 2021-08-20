@@ -8,6 +8,7 @@ import android.content.Intent;
 import android.media.MediaPlayer;
 import android.os.Bundle;
 import android.view.View;
+import android.view.WindowManager;
 import android.widget.TextView;
 import android.widget.Toast;
 import android.widget.ToggleButton;
@@ -19,9 +20,6 @@ public class MainActivity extends AppCompatActivity {
 
     TextView mulai,informasi,pengaturan,tentang,keluar;
 
-    Pengaturan_Activity ambil = new Pengaturan_Activity();
-
-
     MediaPlayer buttonmusikmain;
     MediaPlayer bgmusikmain;
 
@@ -30,6 +28,7 @@ public class MainActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+        getWindow().setFlags(WindowManager.LayoutParams.FLAG_FULLSCREEN,WindowManager.LayoutParams.FLAG_FULLSCREEN);
 
         mulai = findViewById(R.id.btn_mulai);
         informasi = findViewById(R.id.btn_Informasi);
@@ -40,9 +39,9 @@ public class MainActivity extends AppCompatActivity {
 
         buttonmusikmain = MediaPlayer.create(this,R.raw.button_musik);
         bgmusikmain= MediaPlayer.create(this,R.raw.bg_musik);
-
-        bgmusikmain.start();
-        bgmusikmain.setLooping(true);
+//
+//        bgmusikmain.start();
+//        bgmusikmain.setLooping(true);
 
 
 
@@ -53,7 +52,7 @@ public class MainActivity extends AppCompatActivity {
               Intent intentmulai = new Intent(MainActivity.this, Mulai_Bermain.class);
               startActivity(intentmulai);
              buttonmusikmain.start();
-             bgmusikmain.release();
+//             bgmusikmain.release();
           }
       });
 
@@ -67,24 +66,14 @@ public class MainActivity extends AppCompatActivity {
           }
       });
 
-//      pengaturan.setOnClickListener(new View.OnClickListener() {
-//          @Override
-//          public void onClick(View v) {
-//
-//              Intent skorintent = new Intent(MainActivity.this, Score_Activity.class);
-//              startActivity(skorintent);
-//             buttonmusikmain.start();
-//          }
-//      });
 
       tentang.setOnClickListener(new View.OnClickListener() {
           @Override
           public void onClick(View v) {
 
-//              ambil.btnsuara();
               Intent movetoabout = new Intent(MainActivity.this,About_Activity.class);
               startActivity(movetoabout);
-
+              buttonmusikmain.start();
 
           }
       });
